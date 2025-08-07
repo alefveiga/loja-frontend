@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Loja</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <!-- Cabeçalho com botão de menu e carrinho -->
+  <header>
+    <div class="topo">
+      <button class="menu-btn" onclick="abrirMenu()">☰</button>
+      <h1>🛍️ Mini Loja</h1>
+      <button class="carrinho-btn" onclick="abrirCarrinho()">🛒</button>
+    </div>
+  </header>
+
+  <!-- Menu lateral -->
+  <nav class="menu-lateral" id="menuLateral">
+    <button class="fechar" onclick="fecharMenu()">×</button>
+    <ul>
+      <li><a href="#">Início</a></li>
+      <li><a href="#">Produtos</a></li>
+      <li><a href="#">Sobre</a></li>
+      <li><a href="#">Contato</a></li>
+    </ul>
+  </nav>
+
+  <!-- Carrinho lateral -->
+  <aside class="carrinho-lateral" id="carrinhoLateral">
+    <button class="fechar" onclick="fecharCarrinho()">×</button>
+    <h2>Seu Carrinho</h2>
+    <ul id="lista-carrinho">
+      <li>Nenhum item no carrinho.</li>
+    </ul>
+  </aside>
+
+  <!-- Banner -->
+  <section class="banner" aria-label="Banner principal">
+    <h2>Bem-vindo à melhor loja online!</h2>
+    <p>Encontre os melhores produtos com descontos incríveis.</p>
+  </section>
+
+  <!-- Produtos e contador -->
+  <main>
+    <div class="carrinho" aria-live="polite">
+      Carrinho: <span id="contador-carrinho">0</span> itens
+    </div>
+
+    <!-- Os produtos da API vão aparecer aqui -->
+    <section class="produtos" aria-label="Lista de produtos">
+      <!-- Os artigos com produtos serão adicionados pelo JavaScript -->
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <footer>
+    <p>© 2025 Mini Loja. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="./config.js"></script>
+</body>
+</html>
