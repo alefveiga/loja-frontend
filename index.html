@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mini Loja</title>
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./style.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
 </head>
 <body>
 
@@ -15,7 +19,18 @@
       <h1>🛍️ Mini Loja</h1>
       <button class="carrinho-btn" onclick="abrirCarrinho()">🛒</button>
     </div>
-  </header>
+  </header> 
+
+  <section class="filtros">
+    <input type="text" id="input-busca" placeholder="Buscar produtos..." />
+    <select id="select-categoria">
+      <option value="">Todas Categorias</option>
+      <option value="electronics">Eletrônicos</option>
+      <option value="jewelery">Joias</option>
+      <option value="men's clothing">Moda Masculina</option>
+      <option value="women's clothing">Moda Feminina</option>
+    </select>
+  </section>
 
   <!-- Menu lateral -->
   <nav class="menu-lateral" id="menuLateral">
@@ -37,10 +52,17 @@
     </ul>
   </aside>
 
-  <!-- Banner -->
+  <!-- Banner principal -->
   <section class="banner" aria-label="Banner principal">
     <h2>Bem-vindo à melhor loja online!</h2>
     <p>Encontre os melhores produtos com descontos incríveis.</p>
+  </section>
+
+<section class="banners">
+  <img src="https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg" alt="Mulher sorridente" class="banner-img">
+  <img src="https://images.pexels.com/photos/1462637/pexels-photo-1462637.jpeg" alt="Mulher levantando a mão" class="banner-img">
+  <img src="https://images.pexels.com/photos/934063/pexels-photo-934063.jpeg" alt="iPhone com óculos de sol" class="banner-img">
+
   </section>
 
   <!-- Produtos e contador -->
@@ -49,9 +71,48 @@
       Carrinho: <span id="contador-carrinho">0</span> itens
     </div>
 
-    <!-- Os produtos da API vão aparecer aqui -->
-    <section class="produtos" aria-label="Lista de produtos">
-      <!-- Os artigos com produtos serão adicionados pelo JavaScript -->
+    <!-- Seção: Novidades -->
+    <section class="carrossel-produtos">
+      <h2>Novidades</h2>
+      <div class="swiper novidades-swiper">
+        <div class="swiper-wrapper" id="novidades-wrapper"></div>
+        <div class="swiper-button-prev novidades-prev"></div>
+        <div class="swiper-button-next novidades-next"></div>
+        <div class="swiper-pagination novidades-pagination"></div>
+      </div>
+    </section>
+
+    <!-- Seção: Eletrônicos -->
+    <section class="carrossel-produtos">
+      <h2>Eletrônicos</h2>
+      <div class="swiper eletronicos-swiper">
+        <div class="swiper-wrapper" id="eletronicos-wrapper"></div>
+        <div class="swiper-button-prev eletronicos-prev"></div>
+        <div class="swiper-button-next eletronicos-next"></div>
+        <div class="swiper-pagination eletronicos-pagination"></div>
+      </div>
+    </section>
+
+    <!-- Seção: Joias -->
+    <section class="carrossel-produtos">
+      <h2>Joias</h2>
+      <div class="swiper joias-swiper">
+        <div class="swiper-wrapper" id="joias-wrapper"></div>
+        <div class="swiper-button-prev joias-prev"></div>
+        <div class="swiper-button-next joias-next"></div>
+        <div class="swiper-pagination joias-pagination"></div>
+      </div>
+    </section>
+
+    <!-- Seção: Moda Masculina -->
+    <section class="carrossel-produtos">
+      <h2>Moda Masculina</h2>
+      <div class="swiper moda-masculina-swiper">
+        <div class="swiper-wrapper" id="moda-masculina-wrapper"></div>
+        <div class="swiper-button-prev moda-masculina-prev"></div>
+        <div class="swiper-button-next moda-masculina-next"></div>
+        <div class="swiper-pagination moda-masculina-pagination"></div>
+      </div>
     </section>
   </main>
 
@@ -61,6 +122,8 @@
   </footer>
 
   <!-- JavaScript -->
-  <script src="./config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="./script.js"></script>
+
 </body>
 </html>

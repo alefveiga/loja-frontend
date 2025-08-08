@@ -16,7 +16,6 @@ header {
   background-color: #222;
   color: white;
   padding: 20px;
-  /* Remova text-align: center para flex no topo */
 }
 
 /* Header com botão */
@@ -28,6 +27,40 @@ header {
 
 header h1 {
   font-size: 2rem;
+}
+
+.banners {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 40px 0;
+}
+
+.banner-img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+
+.filtros {
+  max-width: 1200px;
+  margin: 20px auto;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.filtros input,
+.filtros select {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 250px;
 }
 
 .menu-btn,
@@ -55,7 +88,6 @@ header h1 {
 
 .menu-lateral ul {
   list-style: none;
-  padding: 0;
   margin-top: 40px;
   display: flex;
   flex-direction: column;
@@ -67,7 +99,7 @@ header h1 {
 }
 
 .menu-lateral a {
-    display: block;
+  display: block;
   width: 100%;
   padding: 15px 20px;
   border-radius: 6px;
@@ -75,13 +107,12 @@ header h1 {
   transition: all 0.3s ease;
   font-size: 1.1rem;
   text-decoration: none;
-  font-size: 1.1rem;
   color: #ccc;
 }
 
 .menu-lateral a:hover {
-  background-color: rgba(255, 255, 255, 0.1); /* fundo transparente claro */
-  color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
   border: 1px solid white;
   box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
   transform: scale(1.03);
@@ -102,7 +133,7 @@ header h1 {
   cursor: pointer;
 }
 
-/* Aba lateral do carrinho */
+/* Carrinho lateral */
 .carrinho-lateral {
   position: fixed;
   top: 0;
@@ -188,7 +219,7 @@ main {
   font-size: 1.1rem;
 }
 
-/* Grid de produtos */
+/* Grid de produtos (não usado para carrossel, mas mantido se quiser) */
 .produtos {
   display: flex;
   flex-wrap: wrap;
@@ -223,6 +254,7 @@ main {
   margin-bottom: 10px;
   height: 50px;
   overflow: hidden;
+  color: #333;
 }
 
 .produto p {
@@ -247,20 +279,114 @@ main {
   background-color: #218838;
 }
 
-footer {
-  background-color: #222;
-  color: white;
+/* --- Estilos para carrosséis --- */
+
+.carrossel-produtos {
+  padding: 40px 20px;
+  background-color: #fff;
+  margin-bottom: 40px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   text-align: center;
-  padding: 15px 20px;
-  margin-top: 40px;
 }
 
+.carrossel-produtos h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #222;
+  font-weight: 700;
+}
 
-/* ----------- RESPONSIVIDADE ----------- */
+.swiper {
+  width: 100%;
+  padding-bottom: 50px;
+  position: relative;
+}
 
-/* Pequenos dispositivos (celulares) */
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+}
+
+.produto {
+  width: 240px; /* ajuste para slide */
+  background: white;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: box-shadow 0.3s ease;
+}
+
+.produto:hover {
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.produto img {
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+  margin-bottom: 10px;
+  border-radius: 6px;
+}
+
+.produto h4 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  height: 50px;
+  overflow: hidden;
+  color: #333;
+}
+
+.produto p {
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #28a745;
+  font-size: 1.1rem;
+}
+
+.btn-adicionar {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-adicionar:hover {
+  background-color: #218838;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #28a745;
+  width: 35px;
+  height: 35px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background-color: rgba(40, 167, 69, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background-color: #28a745;
+  color: white;
+}
+
+.swiper-pagination {
+  bottom: 10px !important;
+}
+
+/* Responsividade */
 @media (max-width: 600px) {
-  /* Menu lateral e carrinho ocupam toda a tela */
+  .produto {
+    width: 80vw;
+  }
   .menu-lateral,
   .carrinho-lateral {
     width: 100%;
@@ -277,18 +403,6 @@ footer {
   .carrinho-lateral.aberto {
     right: 0;
   }
-
-  /* Produtos em coluna, largura mais confortável */
-  .produtos {
-    flex-direction: column;
-    align-items: center;
-  }
-  .produto {
-    width: 90%;
-    max-width: 400px;
-  }
-
-  /* Ajusta topo */
   .topo {
     padding: 0 10px;
   }
@@ -296,8 +410,6 @@ footer {
   .carrinho-btn {
     font-size: 20px;
   }
-
-  /* Banner menor para celular */
   .banner {
     height: 300px;
     padding: 40px 10px;
@@ -310,9 +422,8 @@ footer {
   }
 }
 
-/* Dispositivos médios (tablets) */
+/* Tablets */
 @media (min-width: 601px) and (max-width: 900px) {
-  /* Produtos em duas colunas */
   .produtos {
     flex-wrap: wrap;
     justify-content: center;
@@ -322,8 +433,6 @@ footer {
     width: calc(50% - 20px);
     max-width: none;
   }
-
-  /* Banner médio */
   .banner {
     height: 350px;
   }
@@ -335,4 +444,63 @@ footer {
   }
 }
 
-/* Dispositivos grandes (desktop) mantém seu layout normal */
+/* --- Novos estilos para os banners lado a lado e horizontal --- */
+
+/* Container dos banners */
+.banners-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+/* Dois banners lado a lado */
+.banners-lado-a-lado {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.banners-lado-a-lado picture {
+  flex: 1 1 300px; /* cresce e encolhe, mínimo 300px */
+  max-width: 600px;
+}
+
+.banners-lado-a-lado img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Banner horizontal */
+.banner-horizontal {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  display: block;
+}
+
+.banner-horizontal img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+
+footer {
+  background-color: #222;
+  color: #eee;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 1rem;
+  box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.1);
+  margin-top: 40px;
+  font-weight: 500;
+}
+
+footer p {
+  margin: 0;
+}
