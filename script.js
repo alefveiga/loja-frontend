@@ -8,9 +8,10 @@ fetch("https://fakestoreapi.com/products")
     exibirProdutos(todosProdutos);
   });
 
-// Função para exibir os produtos em lista (não carrossel, mas você pode adaptar)
+// Função para exibir os produtos em lista (não carrossel, mas pode adaptar)
 function exibirProdutos(produtos) {
   const container = document.querySelector(".produtos");
+  if (!container) return; // previne erro se container não existir
   container.innerHTML = "";
 
   produtos.forEach(produto => {
@@ -54,7 +55,6 @@ function filtrarProdutos() {
 document.getElementById('input-busca').addEventListener('input', filtrarProdutos);
 document.getElementById('select-categoria').addEventListener('change', filtrarProdutos);
 
-
 document.addEventListener("DOMContentLoaded", () => {
   let contador = 0;
   let produtos = [];
@@ -84,6 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Função para criar carrossel com produtos em uma seção específica
   function criarCarrossel(produtos, prefixo) {
     const wrapper = document.getElementById(`${prefixo}-wrapper`);
+    if (!wrapper) return; // previne erro se não existir
     wrapper.innerHTML = ""; // limpa slides antigos, se houver
 
     produtos.forEach(produto => {
@@ -106,11 +107,11 @@ document.addEventListener("DOMContentLoaded", () => {
       wrapper.appendChild(slide);
     });
 
-    // Inicializa Swiper para a seção
+    // Inicializa Swiper para a seção sem loop para evitar warning
     new Swiper(`.${prefixo}-swiper`, {
       slidesPerView: 1,
       spaceBetween: 20,
-      loop: true,
+      loop: false,  // evita warning de loop
       pagination: {
         el: `.${prefixo}-pagination`,
         clickable: true
@@ -120,9 +121,12 @@ document.addEventListener("DOMContentLoaded", () => {
         prevEl: `.${prefixo}-prev`
       },
       breakpoints: {
-        640: { slidesPerView: 2 },
-        900: { slidesPerView: 3 },
-        1200: { slidesPerView: 4 }
+        320: { slidesPerView: 1, spaceBetween: 10 },
+        600: { slidesPerView: 1, spaceBetween: 15 },
+        613: { slidesPerView: 1, spaceBetween: 35 }, // <-- ajuste no meio da faixa problemática
+        640: { slidesPerView: 2, spaceBetween: 20 },
+        900: { slidesPerView: 3, spaceBetween: 25 },
+        1200: { slidesPerView: 4, spaceBetween: 30 }
       }
     });
   }

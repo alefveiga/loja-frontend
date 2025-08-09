@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -58,18 +58,24 @@
     <p>Encontre os melhores produtos com descontos incríveis.</p>
   </section>
 
-<section class="banners">
-  <img src="https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg" alt="Mulher sorridente" class="banner-img">
-  <img src="https://images.pexels.com/photos/1462637/pexels-photo-1462637.jpeg" alt="Mulher levantando a mão" class="banner-img">
-  <img src="https://images.pexels.com/photos/934063/pexels-photo-934063.jpeg" alt="iPhone com óculos de sol" class="banner-img">
-
+  <section class="banners">
+    <img src="https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg" alt="Mulher sorridente" class="banner-img" />
+    <img src="https://images.pexels.com/photos/1462637/pexels-photo-1462637.jpeg" alt="Mulher levantando a mão" class="banner-img" />
+    <img src="https://images.pexels.com/photos/934063/pexels-photo-934063.jpeg" alt="iPhone com óculos de sol" class="banner-img" />
   </section>
 
-  <!-- Produtos e contador -->
   <main>
     <div class="carrinho" aria-live="polite">
       Carrinho: <span id="contador-carrinho">0</span> itens
     </div>
+
+    <!-- Banner promocional -->
+    <section class="banner-secao" aria-label="Banner promocional">
+      <picture>
+        <source media="(min-width: 601px)" srcset="./assets/Banner-Desconto-Lançamento-Loja-Online.png" />
+        <img src="./assets/novidades-mobile.png" alt="Promoção especial" />
+      </picture>
+    </section>
 
     <!-- Seção: Novidades -->
     <section class="carrossel-produtos">
@@ -80,6 +86,14 @@
         <div class="swiper-button-next novidades-next"></div>
         <div class="swiper-pagination novidades-pagination"></div>
       </div>
+    </section>
+
+    <!-- Banner promocional -->
+    <section class="banner-secao" aria-label="Banner promocional">
+      <picture>
+        <source media="(min-width: 601px)" srcset="./assets/eletronico.png" />
+        <img src="./assets/eletronicos-mobile.png" alt="Promoção especial" />
+      </picture>
     </section>
 
     <!-- Seção: Eletrônicos -->
@@ -93,6 +107,14 @@
       </div>
     </section>
 
+    <!-- Banner promocional -->
+    <section class="banner-secao" aria-label="Banner promocional">
+      <picture>
+        <source media="(min-width: 601px)" srcset="./assets/joias.png" />
+        <img src="./assets/joais-mobile.png" alt="Promoção especial" />
+      </picture>
+    </section>
+
     <!-- Seção: Joias -->
     <section class="carrossel-produtos">
       <h2>Joias</h2>
@@ -102,6 +124,14 @@
         <div class="swiper-button-next joias-next"></div>
         <div class="swiper-pagination joias-pagination"></div>
       </div>
+    </section>
+
+    <!-- Banner promocional -->
+    <section class="banner-secao" aria-label="Banner promocional">
+      <picture>
+        <source media="(min-width: 601px)" srcset="./assets/moda-masculina.png" />
+        <img src="./assets/moda-mobile.png" alt="Promoção especial" />
+      </picture>
     </section>
 
     <!-- Seção: Moda Masculina -->
@@ -116,7 +146,6 @@
     </section>
   </main>
 
-  <!-- Rodapé -->
   <footer>
     <p>© 2025 Mini Loja. Todos os direitos reservados.</p>
   </footer>

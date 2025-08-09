@@ -370,6 +370,8 @@ main {
   border-radius: 50%;
   background-color: rgba(40, 167, 69, 0.1);
   transition: background-color 0.3s ease;
+  position: absolute;
+  z-index: 10;
 }
 
 .swiper-button-prev:hover,
@@ -382,37 +384,71 @@ main {
   bottom: 10px !important;
 }
 
+/* Banner seção */
+.banner-secao {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.banner-secao picture,
+.banner-secao img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
 /* Responsividade */
+
+/* Mobile até 600px */
 @media (max-width: 600px) {
   .produto {
     width: 80vw;
   }
   .menu-lateral,
   .carrinho-lateral {
-    width: 100%;
+    width: 80vw;
+    padding: 40px 20px 20px 20px;
   }
   .menu-lateral {
-    left: -100%;
+    left: -80vw;
   }
   .menu-lateral.aberto {
     left: 0;
   }
   .carrinho-lateral {
-    right: -100%;
+    right: -80vw;
   }
   .carrinho-lateral.aberto {
     right: 0;
   }
   .topo {
     padding: 0 10px;
+    gap: 10px;
   }
   .menu-btn,
   .carrinho-btn {
-    font-size: 20px;
+    font-size: 18px;
+    padding: 8px;
+  }
+  .filtros {
+    flex-direction: column;
+    align-items: center;
+  }
+  .filtros input,
+  .filtros select {
+    width: 90vw;
+    max-width: 100%;
+  }
+  header h1 {
+    font-size: 1.5rem;
   }
   .banner {
-    height: 300px;
-    padding: 40px 10px;
+    height: 250px;
+    padding: 30px 10px;
   }
   .banner h2 {
     font-size: 1.5rem;
@@ -422,19 +458,27 @@ main {
   }
 }
 
-/* Tablets */
+/* Tablets 601px até 900px */
 @media (min-width: 601px) and (max-width: 900px) {
-  .produtos {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-  }
   .produto {
-    width: calc(50% - 20px);
-    max-width: none;
+    width: 180px;
+  }
+  .menu-lateral {
+    width: 300px;
+  }
+  .carrinho-lateral {
+    width: 320px;
+  }
+  .filtros input,
+  .filtros select {
+    width: 300px;
+  }
+  header h1 {
+    font-size: 1.8rem;
   }
   .banner {
     height: 350px;
+    padding: 40px 20px;
   }
   .banner h2 {
     font-size: 1.8rem;
@@ -442,65 +486,31 @@ main {
   .banner p {
     font-size: 1.1rem;
   }
-}
-
-/* --- Novos estilos para os banners lado a lado e horizontal --- */
-
-/* Container dos banners */
-.banners-container {
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 0 20px;
-  text-align: center;
-}
-
-/* Dois banners lado a lado */
-.banners-lado-a-lado {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  margin-bottom: 30px;
-  flex-wrap: wrap;
-}
-
-.banners-lado-a-lado picture {
-  flex: 1 1 300px; /* cresce e encolhe, mínimo 300px */
-  max-width: 600px;
-}
-
-.banners-lado-a-lado img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  object-fit: cover;
-}
-
-/* Banner horizontal */
-.banner-horizontal {
-  max-width: 1200px;
-  margin: 0 auto 40px;
-  display: block;
-}
-
-.banner-horizontal img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  object-fit: cover;
+  .topo {
+    padding: 0 20px;
+  }
 }
 
 
-footer {
-  background-color: #222;
-  color: #eee;
-  text-align: center;
-  padding: 20px 0;
-  font-size: 1rem;
-  box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.1);
-  margin-top: 40px;
-  font-weight: 500;
+@media (min-width: 600px) and (max-width: 900px) {
+  .menu-lateral {
+    left: -250px !important; 
+    width: 250px;
+    transition: left 0.3s ease;
+  }
+  .menu-lateral.aberto {
+    left: 0 !important;
+  }
 }
 
-footer p {
-  margin: 0;
+
+@media (min-width: 601px) and (max-width: 639px) {
+  /* Adiciona padding lateral no container swiper para abrir espaço */
+  .swiper.novidades-swiper,
+  .swiper.eletronicos-swiper,
+  .swiper.joias-swiper,
+  .swiper.moda-masculina-swiper {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }
